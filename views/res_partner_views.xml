@@ -18,6 +18,7 @@
                             class="oe_highlight" type="object"
                             groups="itl_customer_supplier_approval.customer_supplier_approval_group_approval"
                             attrs="{'invisible':['|',('state', 'not in', ['validated']),('hide_button', '=', True)]}"/>
+
                     <field name="state" widget="statusbar"/>
                     <field name="hide_button" invisible="1"/>
                     <field name="hide_button_validate" invisible="1"/>
@@ -26,7 +27,7 @@
             <xpath expr="//field[@name='name']" position="after">
                 <group>
                     <field name="customer_supplier"
-                           groups="itl_customer_supplier_approval.customer_supplier_approval_group_approval,base.group_admin"/>
+                           groups="itl_customer_supplier_approval.customer_supplier_approval_group_approval,base.group_system"/>
                 </group>
             </xpath>
         </field>

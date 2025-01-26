@@ -14,7 +14,6 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     customer_supplier = fields.Char(string="Customer Supplier Id",
-                                    domain="[('state', '=', 'validated')]",
                                     help="Unique id for partners")
     hide_button = fields.Boolean(default=False, string='Hide Approve Button',
                                  help="TChecking the box enables to hide the "
@@ -30,6 +29,13 @@ class ResPartner(models.Model):
     # Account field
     property_account_receivable_id = fields.Many2one('account.account', required=False)
     property_account_payable_id = fields.Many2one('account.account', required=False)
+
+    bd_sales_person = fields.Many2one('hr.employee', string="BD Sales Person",
+                                      help="Assigned sales person from the Sales department.")
+
+
+
+
 
     _sql_constraints = [
         ('id_uniq', 'unique (customer_supplier)', 'The partner id unique !')

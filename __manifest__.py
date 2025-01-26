@@ -23,6 +23,8 @@
         'security/ir.model.access.csv',
         'views/res_partner_views.xml',
         'views/account_move_views.xml',
+
+        # 'data/signup_mail_templates.xml',
     ],
     'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
