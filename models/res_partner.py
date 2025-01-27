@@ -85,11 +85,6 @@ class ResPartner(models.Model):
             except Exception as e:
                 raise ValidationError(f"An error occurred while sending the email: {str(e)}")
 
-    # def action_approve(self):
-    #     """ Method of button approve to approve customer or supplier """
-    #     for rec in self:
-    #         rec.hide_button = True
-    #         rec.write({'state': 'approved'})
 
     def action_approve(self):
         """ Method of button approve to approve customer or supplier and notify employees who should get customer approval mails """
