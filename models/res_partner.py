@@ -23,7 +23,7 @@ class ResPartner(models.Model):
                                           help="This boolean field is used to "
                                                "hide the Validate button")
     state = fields.Selection([('draft', 'Draft'), ('validated', 'Validated'),
-                              ('approved', 'Approved')], default='draft',
+                              ('approved', 'Approved'),('confirmed', 'Confirmed')], default='draft',
                              string='Status',
                              help="The status of contacts")
     # Account field
@@ -63,8 +63,9 @@ class ResPartner(models.Model):
             rec.hide_button_validate = True
             rec.write({'state': 'validated'})
 
+
             # Find the Sales department and its manager
-            sales_department = self.env['hr.department'].search([('name', '=', 'Sales')], limit=1)
+            sales_department = self.env['hr.department'].search([('name', '=', 'Sales & Marketing')], limit=1)
             if not sales_department or not sales_department.manager_id:
                 raise UserError("Sales department or its manager is not configured.")
 
